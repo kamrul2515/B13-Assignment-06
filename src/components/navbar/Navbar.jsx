@@ -32,8 +32,11 @@ const Navbar = () => {
   </div>
   <div className="navbar-end gap-4 items-center">
     <img src="https://i.ibb.co.com/jkr3Lyz1/shopping-cart.png" alt="" />
-    <button className='text-[#101727] font-16 font-semibold cursor-pointer'>Login</button>
-    <button className="btn text-white rounded-3xl bg-linear-to-r from-[#4F39F6] to-[#9514FA]">Get Started</button>
+    <button className='text-[#101727] font-16 font-semibold cursor-pointer hover:text-[#4F39F6]'>Login</button>
+    <button className="btn text-white rounded-3xl bg-linear-to-r from-[#4F39F6] to-[#9514FA]
+    cursor-pointer leading-none transition-all duration-300 hover:opacity-90 hover:scale-105 
+    active:scale-95 shadow-md hover:shadow-lg">
+        Get Started</button>
   </div>
   </div>
 </div>
