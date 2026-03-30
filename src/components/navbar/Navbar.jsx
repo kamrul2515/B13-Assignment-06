@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Navbar = () => {
+const Navbar = ({ cartCount,}) => {
     return (
         <div className="navbar bg-base-100 shadow-sm w-full fixed top-0 left-0 z-50">
       <div className="navbar max-w-400 mx-auto px-4 md:px-10">      
@@ -31,7 +31,16 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end gap-4 items-center">
-    <img src="https://i.ibb.co.com/jkr3Lyz1/shopping-cart.png" alt="" />
+    <div className='relative'>
+
+                        <img src="https://i.ibb.co.com/jkr3Lyz1/shopping-cart.png" className='w-5' alt="" />
+                        {cartCount > 0 && (
+                            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                                {cartCount}
+                            </span>
+                        )}
+                    </div>
+
     <button className='text-[#101727] font-16 font-semibold cursor-pointer hover:text-[#4F39F6]'>Login</button>
     <button className="btn text-white rounded-3xl bg-linear-to-r from-[#4F39F6] to-[#9514FA]
     cursor-pointer leading-none transition-all duration-300 hover:opacity-90 hover:scale-105 

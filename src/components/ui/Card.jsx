@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaCheck } from 'react-icons/fa6';
 
-const Card = ({product}) => {
+const Card = ({product, handleAddToCart, setSelectedProducts, selectedProducts}) => {
+    const [isSelected, setIsSelected] = useState(false);
+
+    const handleClick = () => {
+        if (!isSelected) {
+            setIsSelected(true);
+            handleAddToCart();
+            setSelectedProducts([...selectedProducts, product]);
+        }
+    }
     return (
          
                        <div key={product.id} className="card w-full shadow-sm border border-[#F6F6F6] overflow-hidden flex flex-col">
@@ -38,15 +47,26 @@ const Card = ({product}) => {
                                            ))
                                        }
                                    </div>
-           <div className="card-actions ">
-            <button className="w-full px-8 py-5 btn text-white rounded-3xl bg-linear-to-r from-[#4F39F6] to-[#9514FA]
-       cursor-pointer leading-none transition-all duration-300 hover:opacity-90 hover:scale-105 
-       active:scale-95 shadow-md hover:shadow-lg">
-         Buy Now
-       </button>
-           </div>
+                <div className="card-actions mt-auto">
+                    <button 
+                        onClick={handleClick} 
+                        disabled={isSelected} 
+                        className={`w-full px-8 py-5 btn rounded-3xl cursor-pointer leading-none transition-all duration-300 shadow-md flex items-center justify-center gap-2 
+                        ${isSelected 
+                          ? "bg-green-500 text-white cursor-default" 
+                          : "bg-linear-to-r from-[#4F39F6] to-[#9514FA] text-white hover:scale-105"
+                        }`}
+                    >
+                        {isSelected ? (
+                            <>
+                                <FaCheck className="text-lg" /> 
+                                <span>Added to Cart!</span>
+                            </>
+                        ) : "Buy Now"}
+                    </button>
+                </div>
+</div>
          </div>
-       </div>
     );
 };
 
