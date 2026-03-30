@@ -4,7 +4,7 @@ import './App.css'
 import Banner from './components/homepage/banner/Banner'
 import Rating from './components/homepage/rating/Rating'
 import Navbar from './components/navbar/Navbar'
-import ToolsCard from './components/toolscard/ToolsCard'
+import ToolsCard from './components/homepage/toolscard/ToolsCard'
 
 const fetchToolsCard = async () => {
   const res = await fetch("/data.json");
