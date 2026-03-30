@@ -1,4 +1,4 @@
-import { use, useState } from 'react';
+import { use } from 'react';
 import ProductsCard from '../../ProductsCard/ProductsCard';
 import SelectedCards from '../../ProductsCard/SelectedCards/SelectedCards';
 
@@ -9,11 +9,13 @@ const ToolsCard = ({
     handleRemoveFromCart, 
     handleResetCart, 
     selectedProducts,
-    setSelectedProducts
+    setSelectedProducts,
+    selectedType, 
+    setSelectedType 
 }) => {
     const rawData = use(toolsCardData);
     const productData = rawData.products;
-    const [selectedType, setSelectedType] = useState("available");
+
 
     return (
         <div className='max-w-400 mx-auto px-4'>
@@ -26,7 +28,7 @@ const ToolsCard = ({
                     <br /> to boost your productivity and creativity.
                 </p>
 
-                <div className="inline-flex items-center p-1 border border-[#F1F1F1] rounded-full bg-white shadow-sm">
+               <div className="inline-flex items-center p-1 border border-[#F1F1F1] rounded-full bg-white shadow-sm">
                     <button
                         onClick={() => setSelectedType("available")}
                         className={`px-8 py-3 rounded-full font-medium transition-all duration-300 cursor-pointer ${
