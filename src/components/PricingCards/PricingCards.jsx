@@ -5,7 +5,7 @@ const PricingCards = ({pricingDataPromise}) => {
     const pricing = data.pricing;
 
     return (
-       <section className="py-20 bg-white">
+   <section className="py-20 bg-white">
             <div className="max-w-400 mx-auto px-4 md:px-10">
                 <div className="text-center mb-16">
                     <h2 className="text-4xl md:text-5xl font-extrabold text-[#101727] mb-4">
@@ -44,10 +44,10 @@ const PricingCards = ({pricingDataPromise}) => {
                                 <span className={`ml-2 text-lg ${item.isPopular ? 'text-purple-200' : 'text-[#627382]'}`}>/Month</span>
                             </div>
 
-                            <ul className="space-y-4 mb-10 flex-grow">
+                            <ul className="space-y-4 mb-10 grow">
                                 {item.features.map((feature, idx) => (
                                     <li key={idx} className="flex items-center gap-3">
-                                        <svg className={`w-5 h-5 flex-shrink-0 ${item.isPopular ? 'text-white' : 'text-[#10B981]'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <svg className={`w-5 h-5 shrink-0 ${item.isPopular ? 'text-white' : 'text-[#10B981]'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                                         </svg>
                                         <span className={item.isPopular ? 'text-purple-50' : 'text-[#627382]'}>{feature}</span>
@@ -55,7 +55,7 @@ const PricingCards = ({pricingDataPromise}) => {
                                 ))}
                             </ul>
 
-                            <button className={`w-full py-4 rounded-full font-bold transition-all duration-300 ${
+                            <button className={`w-full py-4 rounded-full font-bold transition-all duration-300 cursor-pointer active:scale-95 ${
                                 item.isPopular 
                                 ? 'bg-white text-[#7C3AED] hover:bg-purple-50' 
                                 : 'bg-[#7C3AED] text-white hover:opacity-90'

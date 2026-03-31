@@ -8,6 +8,8 @@ import ToolsCard from './components/homepage/toolscard/ToolsCard'
 import { toast, ToastContainer } from 'react-toastify'
 import StartedCards from './components/StartedCards/StartedCards'
 import PricingCards from './components/PricingCards/PricingCards'
+import Workflow from './components/homepage/Workflow/Workflow'
+import Footer from './components/Footer/Footer'
 
 const fetchToolsCard = async () => {
   const res = await fetch("/data.json");
@@ -18,7 +20,6 @@ function App() {
  const allDataPromise = fetchToolsCard();
   const [cartCount, setCartCount] = useState(0);
   const [selectedProducts, setSelectedProducts] = useState([]); 
-
   const [selectedType, setSelectedType] = useState("available");
 
   const handleAddToCart = (product) => {
@@ -65,8 +66,10 @@ function App() {
       <>
     <StartedCards stepsDataPromise={allDataPromise} />
     <PricingCards pricingDataPromise={allDataPromise} />
+    <Workflow />
     </>
     )}
+    <Footer />
         </Suspense>
 
    {/*  */}
@@ -74,6 +77,7 @@ function App() {
    <ToastContainer />
    </main>
  
+    
     </>
   )
 }
